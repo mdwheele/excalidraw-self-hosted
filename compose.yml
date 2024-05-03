@@ -4,7 +4,7 @@ volumes:
 services:
   excalidraw-client:
     container_name: excalidraw
-    image: excalidraw:latest
+    image: excalidraw/excalidraw:latest
     build:
       context: .
       dockerfile: Dockerfile
