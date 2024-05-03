@@ -24,6 +24,8 @@ services:
     restart: always
     environment:
       PORT: 3002
+    ports:
+      - 3002:3002
 
   excalidraw-storage:
     container_name: excalistore
