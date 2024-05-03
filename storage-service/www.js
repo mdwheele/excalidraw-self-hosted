@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 const allowedOrigins = [
-  'http://localhost'
+  `http://${process.env.HOSTNAME}`
 ]
 
 app.use(cors((req, callback) => {
