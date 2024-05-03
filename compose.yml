@@ -1,0 +1,34 @@
+volumes:
+  excalistore: 
+
+services:
+  excalidraw-client:
+    container_name: excalidraw
+    image: excalidraw:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      NODE_ENV: production
+    ports:
+      - 80:80
+
+  excalidraw-room:
+    container_name: excaliroom
+    image: excalidraw/excalidraw-room:latest
+    restart: always
+    environment:
+      PORT: 3002
+
+  excalidraw-storage:
+    container_name: excalistore
+    image: excalistore:latest
+    build:
+      context: ./storage-service
+      dockerfile: Dockerfile
+    volumes:
+      - excalistore:/opt/node/data
+    ports:
+      - 3000:3000
+    
