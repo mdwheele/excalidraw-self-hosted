@@ -14,7 +14,6 @@ services:
       VITE_APP_BACKEND_V2_GET_URL: http://${HOSTNAME}:3000/api/v2/
       VITE_APP_BACKEND_V2_POST_URL: http://${HOSTNAME}:3000/api/v2/post/
       VITE_APP_WS_SERVER_URL: http://${HOSTNAME}:3002
-
     ports:
       - 80:80
 
@@ -24,7 +23,7 @@ services:
     restart: always
     environment:
       PORT: 3002
-    ports:
+    ports: 
       - 3002:3002
 
   excalidraw-storage:
