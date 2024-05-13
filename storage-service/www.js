@@ -11,8 +11,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 const allowedOrigins = [
-  `http://${process.env.HOSTNAME}`
+  `https://${process.env.HOSTNAME}`
 ]
+
+console.log(allowedOrigins)
 
 app.use(cors((req, callback) => {
   if (req.method === 'GET') {
@@ -56,7 +58,7 @@ app.post('/api/v2/post/', (req, res, next) => {
 
       res.status(200).json({
         id,
-        data: `http://${req.get("host")}:3000/api/v2/${id}`,
+        data: `https://${req.get("host")}:3000/api/v2/${id}`,
       })
     })
   } catch (error) {
